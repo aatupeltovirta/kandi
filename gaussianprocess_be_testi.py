@@ -5,10 +5,10 @@ from sklearn.gaussian_process.kernels import RBF, ConstantKernel as C, WhiteKern
 import matplotlib.pyplot as plt
 
 # Read the file Windows
-#data = np.genfromtxt(r'C:\Users\atubb\Desktop\machinelearningbindingenergy\machinelearningbindingenergy\machinelearningbindingenergy\EXP2016.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
+data = np.genfromtxt(r'C:\Users\atubb\OneDrive\Työpöytä\kandi\EXP2020.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
 
 # Read the file Ubuntu
-data = np.genfromtxt(r'/home/aajamape/kandi/EXP2016.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
+#data = np.genfromtxt(r'/home/aajamape/kandi/EXP2016.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
 
 
 # Access the columns
