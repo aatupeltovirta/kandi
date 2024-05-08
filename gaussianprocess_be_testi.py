@@ -17,7 +17,7 @@ N = data[:, 1]  # Column 3
 Binding_Energy = data[:, 2]  # Column 7
 
 # Create a Gaussian process model
-kernel = C(1.0, (1e-3, 1e3)) * RBF(1, (1e-3, 1e3))
+kernel = RBF(1, (1e-3, 1e3))
 model = GaussianProcessRegressor(kernel=kernel, n_restarts_optimizer=10)
 
 # Train the model
@@ -29,7 +29,6 @@ model.fit(X_train, y_train)
 
 # Use the model to predict binding energies for new data
 
-
 y_new = model.predict(X_val)
 
 #Mean squared error
@@ -39,6 +38,7 @@ print("MSE on validation set:", mse)
 
 #Calculate difference of new and known binding energies
 binding_energy_diff = y_new - y_val
+print(binding_energy_diff)
 
 # Create a scatter plot with a color map
 plt.figure(figsize=(10, 6))

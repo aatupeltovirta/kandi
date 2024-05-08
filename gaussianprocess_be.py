@@ -18,7 +18,7 @@ Binding_Energy = data[:, 2]  # Column 7
 
 
 # Create a Gaussian process model
-kernel = C(1.0, (1e-3, 1e3)) * RBF(1, (1e-3, 1e3))
+kernel = RBF(1, (1e-3, 1e3))
 model = GaussianProcessRegressor(kernel=kernel, n_restarts_optimizer=10)
 
 # Train the model

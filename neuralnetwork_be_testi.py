@@ -38,6 +38,7 @@ print("MSE on validation set:", mse)
 
 #Calculate difference of new and known binding energies
 binding_energy_diff = predicted_be - y_val
+print(binding_energy_diff)
 
 # Create a scatter plot with a color map
 plt.figure(figsize=(10, 6))
