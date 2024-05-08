@@ -5,18 +5,16 @@ from sklearn.gaussian_process.kernels import RBF, ConstantKernel as C
 import matplotlib.pyplot as plt
 
 # Read the file Windows
-#data = np.genfromtxt(r'C:\Users\atubb\Desktop\machinelearningbindingenergy\machinelearningbindingenergy\machinelearningbindingenergy\EXP2016.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
+data = np.genfromtxt(r'C:\Users\atubb\OneDrive\Työpöytä\kandi\EXP2020.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
 
 # Read the file Ubuntu
-data = np.genfromtxt(r'C:\Users\atubb\OneDrive\Työpöytä\kandi\EXP2020.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
+#data = np.genfromtxt(r'/home/aajamape/kandi/EXP2016.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
 
 
 # Access the columns
 Z = data[:, 0]  # Column 2
 N = data[:, 1]  # Column 3
 Binding_Energy = data[:, 2]  # Column 7
-
-combined = np.vstack((Z, N)).T
 
 
 # Create a Gaussian process model
@@ -46,13 +44,3 @@ plt.xlabel('Neutronien määrä N')
 plt.ylabel('Protonien määrä Z')
 plt.title('Ennustettu sidosenergia - Mitattu sidosenergia')
 plt.show()
-
-#final = np.stack((Z, N, y_new-Binding_Energy),axis=1)
-#print(final)
-
-#plt.scatter(final[:, 1], final[:, 0], c=final[:,2], cmap='viridis')
-#plt.xlabel("Neutronien määrä N")
-#plt.ylabel("Protonien määrä Z")
-#cbar = plt.colorbar()
-#cbar.set_label('Ennustettu sidosenergia - Mitattu sidosenergia')
-#plt.show()

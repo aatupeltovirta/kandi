@@ -31,12 +31,12 @@ model.fit(X_train, y_train)
 
 predicted_be = model.predict(X_val)
 
-
+#Mean squared error
 from sklearn.metrics import mean_squared_error
 mse = mean_squared_error(y_val, predicted_be)
 print("MSE on validation set:", mse)
 
-
+#Calculate difference of new and known binding energies
 binding_energy_diff = predicted_be - y_val
 
 # Create a scatter plot with a color map
