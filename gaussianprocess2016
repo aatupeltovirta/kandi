@@ -5,7 +5,7 @@ from sklearn.gaussian_process.kernels import RBF, ConstantKernel as C, WhiteKern
 import matplotlib.pyplot as plt
 
 # Read the file Windows
-data = np.genfromtxt(r'C:\Users\atubb\OneDrive\Työpöytä\kandi\EXP2020.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
+data = np.genfromtxt(r'C:\Users\atubb\OneDrive\Työpöytä\kandi\EXP2016.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
 
 # Read the file Ubuntu
 #data = np.genfromtxt(r'/home/aajamape/kandi/EXP2016.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
@@ -34,11 +34,9 @@ y_new = model.predict(X_val)
 #Mean squared error
 from sklearn.metrics import mean_squared_error
 mse = mean_squared_error(y_val, y_new)
-print("MSE on validation set:", mse)
 
 #Calculate difference of new and known binding energies
 binding_energy_diff = y_new - y_val
-print(binding_energy_diff)
 
 # Create a scatter plot with a color map
 plt.figure(figsize=(10, 6))
@@ -46,5 +44,5 @@ sc = plt.scatter(X_val[:,0],X_val[:,1], c=binding_energy_diff, cmap='viridis', s
 plt.colorbar(sc, label='Ennustettu sidosenergia - Mitattu sidosenergia')
 plt.xlabel('Neutronien määrä N')
 plt.ylabel('Protonien määrä Z')
-plt.title('Ennustettu sidosenergia - Mitattu sidosenergia')
+plt.title('Gaussin prosessin ennustus 2016 datasta \n Keskineliövirhe: ' + str(mse))
 plt.show()

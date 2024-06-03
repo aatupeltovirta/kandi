@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 
 # Read the file
-data = np.genfromtxt(r'C:\Users\atubb\OneDrive\Työpöytä\kandi\EXP2020.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
+data = np.genfromtxt(r'C:\Users\atubb\OneDrive\Työpöytä\kandi\EXP2016.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
 
 #data = np.genfromtxt(r'/home/aajamape/kandi/EXP2016.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
 
@@ -46,5 +46,5 @@ sc = plt.scatter(X_val[:,0],X_val[:,1], c=binding_energy_diff, cmap='viridis', s
 plt.colorbar(sc, label='Ennustettu sidosenergia - Mitattu sidosenergia')
 plt.xlabel('Neutronien määrä N')
 plt.ylabel('Protonien määrä Z')
-plt.title('Ennustettu sidosenergia - Mitattu sidosenergia\n Keskineliövirhe: ' + str(mse))
+plt.title('Neuroverkon ennustus 2016 datasta\n Keskineliövirhe: ' + str(mse))
 plt.show()
