@@ -1,7 +1,8 @@
 import numpy as np
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.model_selection import train_test_split
-from sklearn.gaussian_process.kernels import RBF, ConstantKernel as C, WhiteKernel
+from sklearn.gaussian_process.kernels import RBF
+import statistics
 import matplotlib.pyplot as plt
 
 # Read the file Windows
@@ -38,11 +39,14 @@ mse = mean_squared_error(y_val, y_new)
 #Calculate difference of new and known binding energies
 binding_energy_diff = y_new - y_val
 
+#Keskiarvon laskeminen
+average = statistics.mean(binding_energy_diff)
+
 # Create a scatter plot with a color map
 plt.figure(figsize=(10, 6))
 sc = plt.scatter(X_val[:,0],X_val[:,1], c=binding_energy_diff, cmap='viridis', s=50)
 plt.colorbar(sc, label='Ennustettu sidosenergia - Mitattu sidosenergia')
 plt.xlabel('Neutronien määrä N')
 plt.ylabel('Protonien määrä Z')
-plt.title('Gaussin prosessin ennustus 2016 datasta \n Keskineliövirhe: ' + str(mse))
+plt.title('Gaussin prosessin ennustus 2016 datasta\n Ennustuksien ja oikeiden arvojen erotuksen keskiarvo: ' + str(average) + ' \n Keskineliövirhe: ' + str(mse))
 plt.show()

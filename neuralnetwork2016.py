@@ -2,6 +2,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPRegressor
 from sklearn.metrics import mean_squared_error
+import statistics
 import matplotlib.pyplot as plt
 
 # Read the file
@@ -38,7 +39,9 @@ mse = mean_squared_error(y_val, predicted_be)
 
 #Calculate difference of new and known binding energies
 binding_energy_diff = predicted_be - y_val
-#print(binding_energy_diff)
+
+#Keskiarvon laskeminen
+average = statistics.mean(binding_energy_diff)
 
 # Create a scatter plot with a color map
 plt.figure(figsize=(10, 6))
@@ -46,5 +49,5 @@ sc = plt.scatter(X_val[:,0],X_val[:,1], c=binding_energy_diff, cmap='viridis', s
 plt.colorbar(sc, label='Ennustettu sidosenergia - Mitattu sidosenergia')
 plt.xlabel('Neutronien määrä N')
 plt.ylabel('Protonien määrä Z')
-plt.title('Neuroverkon ennustus 2016 datasta\n Keskineliövirhe: ' + str(mse))
+plt.title('Neuroverkon ennustus 2016 datasta\n Ennustuksien ja oikeiden arvojen erotuksen keskiarvo: ' + str(average) + '\n Keskineliövirhe: ' + str(mse))
 plt.show()
