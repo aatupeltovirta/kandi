@@ -6,7 +6,7 @@ import statistics
 import matplotlib.pyplot as plt
 
 # Read the file
-data = np.genfromtxt(r'C:\Users\atubb\OneDrive\Työpöytä\kandi\EXP2016.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
+data = np.genfromtxt(r'C:\Users\atubb\kandi\EXP2016.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
 
 #data = np.genfromtxt(r'/home/aajamape/kandi/EXP2016.dat', delimiter=',', skip_header=1, usecols=(4, 3, 7))
 
