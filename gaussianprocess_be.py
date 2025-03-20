@@ -38,7 +38,7 @@ binding_energy_diff = y_new - y_val
 
 # Create a scatter plot with a color map
 plt.figure(figsize=(10, 6))
-sc = plt.scatter(X_val[:,0],X_val[:,1], c=binding_energy_diff, cmap='viridis', s=50)
+sc = plt.scatter(X_val[:,1],X_val[:,0], c=binding_energy_diff, cmap='viridis', s=50)
 plt.colorbar(sc, label='Ennustettu sidosenergia - Mitattu sidosenergia')
 plt.xlabel('Neutronien määrä N')
 plt.ylabel('Protonien määrä Z')
