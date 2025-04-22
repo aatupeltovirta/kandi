@@ -62,5 +62,7 @@ sc = plt.scatter(X_val[:,1],X_val[:,0], c=binding_energy_diff, cmap='seismic', s
 plt.colorbar(sc, label='Ennustettu sidosenergia - Mitattu sidosenergia')
 plt.xlabel('Neutronien määrä N')
 plt.ylabel('Protonien määrä Z')
-plt.title('Neuroverkon ennustus 2016 datasta\n Ennustuksien ja oikeiden arvojen erotuksen keskiarvo: ' + str(average) + '\n Keskineliövirhe: ' + str(mse))
+plt.title('Neuroverkon ennustus 2016 datasta')
 plt.show()
+
+print('Ennustuksien ja oikeiden arvojen erotuksen keskiarvo: ' +  str(average) + ' Keskineliövirhe: ' + str(mse))
