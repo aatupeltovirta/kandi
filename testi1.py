@@ -42,22 +42,16 @@ model.fit(X_train, y_train)
 
 predicted_be = model.predict(X_val)
 
-
-
-# Convert B/A back to only binding energy
-AA = X_val[:,0] + X_val[:,1]
-
-final_binding_energy = y_val 
-final_predicted_be = predicted_be
+final_binding_energy = y_val
 
 
 #Mean squared error
 
-mse = mean_squared_error(final_binding_energy, final_predicted_be)
+mse = mean_squared_error(final_binding_energy, predicted_be)
 
 
 #Calculate difference of new and known binding energies
-binding_energy_diff = final_predicted_be - final_binding_energy
+binding_energy_diff = predicted_be - final_binding_energy
 
 #Keskiarvon laskeminen
 average = statistics.mean(binding_energy_diff)
