@@ -53,16 +53,16 @@ mse = mean_squared_error(final_binding_energy, predicted_be)
 #Calculate difference of new and known binding energies
 binding_energy_diff = predicted_be - final_binding_energy
 
-#Keskiarvon laskeminen
+#Calculate the average
 average = statistics.mean(binding_energy_diff)
+max_abs_diff = np.max(np.abs(binding_energy_diff))
 
 # Create a scatter plot with a color map
 plt.figure(figsize=(10, 6))
-sc = plt.scatter(X_val[:,1],X_val[:,0], c=binding_energy_diff, cmap='seismic', s=50)
-plt.colorbar(sc, label='Ennustettu sidosenergia - Mitattu sidosenergia')
+sc = plt.scatter(X_val[:,1],X_val[:,0], c=binding_energy_diff, cmap='seismic',vmin=-max_abs_diff, vmax=max_abs_diff, s=50)
+plt.colorbar(sc, label='Ennustettu sidosenergia - Mitattu sidosenergia (MeV)')
 plt.xlabel('Neutronien määrä N')
 plt.ylabel('Protonien määrä Z')
-plt.title('Neuroverkon ennustus 2016 datasta')
 plt.show()
 
 print('Ennustuksien ja oikeiden arvojen erotuksen keskiarvo: ' +  str(average) + ' Keskineliövirhe: ' + str(mse))
